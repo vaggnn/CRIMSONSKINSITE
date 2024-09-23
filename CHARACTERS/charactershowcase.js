@@ -87,56 +87,6 @@ function initOther(section) {
 
 
 
-// Register plugins
-gsap.registerPlugin(SplitText, ScrollTrigger);
-
-// Create a timeline and pause it initially
-var tl = gsap.timeline({ paused: true }),
-  mySplitText = new SplitText("#quote", { type: "words,chars" }),
-  chars = mySplitText.chars; // An array of all the divs that wrap each character
-
-gsap.set("#quote", { perspective: 800 });
-
-// Define the animation
-tl.from(chars, {
-  duration: 1,
-  opacity: 3,
-  scale: 0,
-  y: 70,
-  rotationX: 180,
-  transformOrigin: "0% 50% -50",
-  ease: "back",
-  stagger: 0.05
-});
-
-
-
-
-// Play the animation on load
-tl.play();
-
-// ScrollTrigger to control the text's visibility and restart the animation on scroll
-ScrollTrigger.create({
-  trigger: "#quote",
-  start: "top center", // Start the trigger when the quote is at the center of the viewport
-  end: "bottom top", // End the trigger when the quote is out of the viewport
-  onLeave: () => {
-    gsap.to("#quote", { opacity: 0, duration: 0.5 }); // Fade out the text when scrolling down
-  },
-  onEnterBack: () => {
-    gsap.to("#quote", { opacity: 1, duration: 0.5 }); // Fade in the text when scrolling back up
-    tl.restart(); // Restart the animation when scrolling back up
-  },
-  onEnter: () => {
-    gsap.to("#quote", { opacity: 1, duration: 0.5 }); // Ensure text is visible when scrolling up again
-  }
-});
-
-// Remove the hover effect to prevent restarting the animation
-document.getElementById("quote").removeEventListener("mouseenter", function () {
-  tl.restart();
-});
-
 
 
 
