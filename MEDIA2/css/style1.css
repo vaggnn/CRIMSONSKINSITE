@@ -1,0 +1,118 @@
+
+
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
+
+
+
+
+.titletext {
+  display: inline-block;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-family: 'EVERETT', sans-serif;
+  font-size: 4.5rem;
+  line-height: 4.5rem;
+  font-weight: 600;
+
+  color: rgb(218, 3, 3);
+}
+
+
+
+.titletext:hover {
+
+  color: rgb(187, 2, 2);
+}
+
+
+
+.line-divider {
+  height: 1px;
+  background-color: rgba(233, 3, 3, 0.479);
+  margin-left: 140px; /* Align the line with the text */
+  margin-top: 10px;
+  margin-right: 0;
+  width: calc(100% + 850px); /* Make sure the line starts from where the text starts */
+
+}
+
+
+
+.link {
+  text-decoration: none; /* Add underline on hover for visual feedback */
+}
+
+
+.text {
+  margin-top: 0.1rem;
+  margin-bottom: 0.2rem;
+  line-height: 0.5rem;
+  font-size: 15px;
+  font-family: 'EVERETT', sans-serif;
+  color: rgb(224, 224, 224);
+}
+
+
+
+.titletext {
+  padding-top: 0.9rem;
+  line-height: 6rem;
+}
+
+.date-text {
+  position: absolute;
+  right: -950px; /* Adjust to control how far the date is from the right side */
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  color: #e60000; /* Customize the date color */
+  font-weight: bold;
+  font-family: 'EVERETT', sans-serif;
+}
+
+
+
+.grid {
+  position: absolute; 
+  z-index: 3;
+
+}
+
+
+.grid-items {
+  display: flex; /* Use flexbox */
+  flex-direction: column; /* Stack items vertically */
+  justify-content: flex-start; /* Align items to the top */
+  align-items: flex-start; /* Align items to the left */
+  padding-left: 170px; /* Optional: add padding from the left */
+  /* Ensure the container takes full height */
+ position: relative;
+ 
+}
+
+
+
+
+.container3dimage {
+  position: relative;
+top: 240px;
+
+  
+}
+
+
+@media (max-width: 991px) {
+  .app {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    right: 0%;
+    bottom: 0%;
+    height: 100%;
+  }
+
+}

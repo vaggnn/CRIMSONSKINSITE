@@ -1,0 +1,652 @@
+html {
+    scroll-behavior: smooth;
+  }
+
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background: #000;
+    color: white;
+
+    font-size: large;
+   
+    
+    
+}
+
+
+
+.video-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+#background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the video covers the entire container */
+    opacity: 50%;
+}
+
+#background-video2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the video covers the entire container */
+    opacity: 90%;
+}
+
+
+
+.background-text {
+  position: absolute;
+  top: 140%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 100px; /* Adjust font size as needed */
+  color: rgba(255, 255, 255, 0.521); /* Light color with low opacity */
+  z-index: 1; /* Ensure it stays in the background */
+  white-space: nowrap;
+  pointer-events: none; /* Allow interactions with elements above */
+  font-family:'EVERETT';
+}
+
+   
+
+@font-face {
+    font-family:'EVERETT'; /* Give your font a name */
+    src: url('fonts/TWKEverett-Light.woff') format('woff'),
+    url('fonts/TWKEverett-Regular.woff') format('woff');
+   
+    /* Add more src lines for other formats if necessary */
+    font-weight: normal; /* Font weight */
+    font-style: normal; /* Font style */
+}
+
+
+
+@font-face {
+font-family:'GROTESK';
+src: url('fonts/SpaceGrotesk-Regular.woff2') format('woff2');
+
+font-family: 'NEUE KAINE';
+src: url('fonts/Neue Kaine Variable.woff') format('woff');
+
+font-family: 'NEUE MACHINA';
+src: url('fonts/PPNeueMachina-PlainRegular.woff') format('woff');
+
+}
+
+
+
+
+
+#header-svg {
+    width: 350px;
+    height: auto;
+    top: 30px ;
+    right: 8%;
+    position: fixed;
+    z-index: 10;
+    margin: 0 auto; 
+    pointer-events: none;
+}
+
+
+.logo-image {
+    position: absolute;
+    top: 3%;
+    left: 5%;
+    transform: translate( -50%);
+    max-height: 7%;
+    position: fixed;
+    z-index: 10;
+}
+
+
+
+
+
+a , li , button , #menuButton ,.close:hover  , .close:focus , .close , .vertical-image , .close-overlaymedia {
+    cursor: url('1x/323232@4x.png')60 50  , auto;
+    
+    
+
+}
+
+
+
+#menuButton {
+ position: absolute;
+top: 40px ;
+right: 3%;
+position: fixed;
+z-index: 10;
+  
+}
+
+
+
+.burger-menu {
+    width: 60px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    z-index: 1;
+}
+
+.line {
+   
+  height: 1px;
+   
+    transition: all 0.3s ease;
+}
+
+.line:nth-child(1) {
+    background-color: #ffffff; /* Orange color for the first line */
+}
+
+.line:nth-child(2) {
+    background-color: #ffffff; /* Green color for the second line */
+}
+
+.line:nth-child(3) {
+    background-color: #ffffff; /* Blue color for the third line */
+}
+
+.burger-menu:hover .line:nth-child(1) {
+    transform: scaleX(0.5); /* Scale horizontally to 80% */
+    transform-origin: right center; /* Scale from the left side */
+ 
+}
+
+
+.burger-menu:hover .line:nth-child(2) {
+    transform: scaleX(0.7); /* Scale horizontally to 80% */
+    transform-origin: right center; /* Scale from the left side */
+ 
+}
+
+.burger-menu:hover .line:nth-child(3) {
+    transform: scaleX(0.9); /* Scale horizontally to 60% */
+    transform-origin: right center; /* Scale from the left side */
+  
+}
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.overlay-content {
+     position: absolute;
+    top: 20px;
+    left: 40px;
+    text-align: left;
+}
+
+.menu-number {
+    font-size: 65px;
+    color: #fd0b0b;
+    margin-right: 3px;
+    list-style: none;
+    
+  
+}
+
+.overlay-content a {
+    padding: 2px;
+    text-decoration: none;
+    font-size: 65px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+    font-family: 'Microsoft Sans Serif';
+    list-style: none;
+    inline-size: auto;
+    position: relative;
+}
+
+
+
+.overlay-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+.overlay-content a:hover, .overlay-content a:focus {
+    color: #eb0000;
+}
+
+.overlay.active {
+    display: flex;
+}
+
+
+.overlay-content a::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+  margin-left: 40px;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.overlay-content a:hover::after {
+    opacity: 1;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+
+
+.marquee-container2 {
+    width: 100%;
+    overflow: hidden;
+    bottom: 80px;
+    color: #fff;
+    padding: 10px 0;
+    position: fixed;
+}
+
+.marquee2 {
+    display: flex;
+    animation: marquee 20s linear infinite; 
+    white-space: nowrap;
+    
+}
+
+.marquee-text2 {
+    padding: 0 50px;
+    font-size: 60px;
+    color: #ff0505;
+    text-decoration: none;
+    font-family: 'EVERETT';
+    
+}
+
+.marquee2 :hover {
+   
+    color: #f1f1f1;
+}
+
+/* Smooth stopping animation */
+.marquee-container2:hover .marquee2 {
+    animation-play-state: paused;
+    transition: animation-play-state 1s ease;
+}
+
+/* Marquee keyframes */
+@keyframes marquee {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.social-icons {
+    display: flex;
+    gap: 30px;
+    position: absolute;
+   bottom: 25%;
+
+}
+
+.social-icon {
+    font-size: 2rem;
+    color: white;
+    transition: color 0.3s;
+    text-decoration: none;
+    cursor: none;
+}
+
+.social-icon:hover {
+    color: red;
+    cursor: none;
+}
+
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 50px;
+    font-size: 80px;
+    color: white;
+    cursor: pointer;
+    z-index: 21;
+}
+
+.close:hover, .close:focus {
+    color: #f1f1f1;
+}
+
+
+
+
+  .hover-video {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none; /* Ensure the video doesn't block the mouse events */
+  }
+  
+
+
+
+.footer {
+    background-color: #00000000;
+    color: #fff;
+    text-align: center;
+    padding:  0;
+    width: 100%;
+    position: fixed;
+    bottom: 20px; /* Hide the footer off-screen initially */
+    transition: bottom 0.3s ease-in-out;
+    font-family: 'EVERETT';
+   
+    font-size: 15px;
+    z-index: 15;
+    inline-size: 400px;
+    margin-left: 40%;
+}
+
+
+.footer :hover {
+    color: red;
+}
+
+
+.footer-left {
+   
+    background-color: #00000004;
+    color: #fff;
+    text-align: left;
+    padding: 10px 0;
+    width: 100%;
+    position: fixed;
+    bottom: 20px; /* Hide the footer off-screen initially */
+    transition: bottom 0.3s ease-in-out;
+    font-family: 'EVERETT';
+   
+    font-size: 15px;
+    margin-left: 40px;
+    
+    z-index: 15;
+    inline-size: 50px;
+}
+ 
+
+.footer-left:hover {
+    color: red;
+}
+
+body {
+    cursor: none;
+  }
+
+#custom-cursor {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    
+  }
+  
+  #cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: rgb(255, 1, 1);
+    border-radius: 50%;
+    position: fixed;
+   
+  }
+  
+  #cursor-circle {
+    width: 50px;
+    height: 50px;
+    border: 1px solid rgb(255, 1, 1);
+    border-radius: 50%;
+    position: fixed;
+    transform: translate(-50%, -50%);
+  }
+
+
+
+  .marquee-container {
+    position: fixed; /* Fixed positioning */
+    top: 500px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ensure it's behind other content */
+    overflow: hidden;
+}
+
+
+.marquee {
+    white-space: nowrap; /* Prevent text wrapping */
+    color: rgba(255, 255, 255, 0.178); /* Semi-transparent text color */
+    font-size: 90px; /* Adjust font size as needed */
+    font-family: 'EVERETT';
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+.info {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+  text-align: left;
+  color: rgba(0, 0, 0, 0);
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+  font-family: 'EVERETT';
+  font-size: 20px;
+}
+
+.gallery-item-wrapper:hover .info {
+  opacity: 1;
+}
+
+
+
+
+
+
+/* Overlaymedia styling */
+.overlaymedia {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow: auto;
+   
+}
+
+.overlaymedia-content {
+    position: relative;
+    width: 60%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #00000000;
+    max-height: 80%;
+    overflow-y: auto;
+}
+
+.overlaymedia-video {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.overlaymedia-video video {
+    width: 100%;
+    height: auto;
+    max-height: 550px;
+}
+
+.overlaymedia-images img {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.close-overlaymedia {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 60px;
+    font-weight: thin;
+    color: #fff;
+
+    z-index: 1100; /* Ensure the close button is above the video */
+}
+
+ 
+.overlaymedia-active .sidebar {
+    display: none;
+}
+  
+
+  #textContainer {
+    position: absolute;
+
+margin-top: 900px;
+   background-color: transparent;
+
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*IMAGE HOVER EFFECT*/
+
+
+
+
+
+
+
+  body::-webkit-scrollbar {
+
+    width: 1.5px;
+    
+    }
+    
+    
+    /* Horizontal scrollbar */
+    body::-webkit-scrollbar {
+        height: 1.5px;
+    }
+    
+    
+    ::-webkit-scrollbar-track {
+        background: #f1f1f100;
+        
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: #f00606;
+        border-radius: 4px;
+        
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+        background: #b60505;
+    }
+
+
+
+    /* Ensure the overlay takes full viewport */
+    .overlaymedia.active {
+        display: block;
+    }
+
+/* Specific styling for scrollbar within the overlay */
+.overlaymedia-content::-webkit-scrollbar {
+    width: 1.5px;
+}
+
+.overlaymedia-content::-webkit-scrollbar-horizontal {
+    height: 1.5px;
+}
+
+.overlaymedia-content::-webkit-scrollbar-track {
+    background: #f1f1f100;
+}
+
+.overlaymedia-content::-webkit-scrollbar-thumb {
+    background: #f00606;
+    border-radius: 4px;
+}
+
+.overlaymedia-content::-webkit-scrollbar-thumb:hover {
+    background: #b60505;
+}

@@ -1,0 +1,98 @@
+
+
+a  , li {
+    cursor: url('/Liquid hover/1x/323232@4x.png')60 50  , auto;
+    
+
+}
+
+
+
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background: #000;
+    color: white;
+    font-family: "Cosi Azure" !important;
+    font-size: large;
+
+}
+
+
+
+.canvas {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    text-transform: uppercase !important;
+}
+
+
+@media screen and (min-width: 53em) {
+    .slider {
+        height: 100vh;
+    }
+}
+
+.rgbKineticSlider {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+canvas {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    
+}
+
+nav a {
+    text-decoration: none;
+    position: absolute;
+    top: 46vh;
+    z-index: 1;
+    padding: 20px;
+    transition: 0.3s;
+    background: transparent;
+    color: white;
+    z-index: 1;
+}
+
+nav a.next {
+    right: 10vw;
+}
+
+nav a.prev {
+    left: 10vw;
+}
+
+@media screen and (max-width: 53em) {
+    nav a {
+        top: auto;
+        bottom: 3rem;
+    }
+}
+
+
+a img {
+    max-width: 8%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    margin-left: 10px;
+    margin-top: -420px;
+ 
+  
+
+}
+
+
+
+
