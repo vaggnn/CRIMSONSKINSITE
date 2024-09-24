@@ -87,7 +87,10 @@ function initOther(section) {
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 93c6907c851c9252694d5729862a8bd02d325289
 
 
 
